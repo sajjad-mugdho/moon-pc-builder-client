@@ -33,31 +33,46 @@ const Navbar = () => {
           <Image className="" src={logo} alt="" />
         </a>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden lg:flex z-[14]">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Item 1</a>
+            <a>Home</a>
           </li>
           <li tabIndex={0}>
             <details>
-              <summary>Parent</summary>
+              <summary className="">Categories</summary>
               <ul className="p-2">
                 <li>
-                  <a>Submenu 1</a>
+                  <a>CPU / Processor</a>
                 </li>
                 <li>
-                  <a>Submenu 2</a>
+                  <a>Motherboard</a>
+                </li>
+                <li>
+                  <a>RAM</a>
+                </li>
+                <li>
+                  <a>Power Supply Unit</a>
+                </li>
+                <li>
+                  <a>Storage Device</a>
+                </li>
+                <li>
+                  <a>Monitor</a>
+                </li>
+                <li>
+                  <a>Others</a>
                 </li>
               </ul>
             </details>
           </li>
           <li>
-            <a>Item 3</a>
+            <a>Login</a>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">PC Builder</a>
+        <a className="btn btn-primary">PC Builder</a>
       </div>
     </div>
   );
