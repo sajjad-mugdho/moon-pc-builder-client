@@ -1,5 +1,6 @@
 import FeaturesCard from "@/components/UI/featuresCard";
 import Hero from "@/components/UI/hero";
+import Products from "@/pages/products";
 import componentCategories from "@/globalTypes/Pc-types";
 import { Inter } from "next/font/google";
 import Head from "next/head";
@@ -21,6 +22,7 @@ export default function Home() {
           ))}
         </div>
       </div>
+      <Products />
     </div>
   );
 }

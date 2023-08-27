@@ -6,7 +6,7 @@ import { AiOutlineGithub, AiFillGoogleCircle } from "react-icons/ai";
 
 const LoginForm = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data): any => {
+  const onSubmit = (data: any) => {
     // createUserWithEmailAndPassword(data.email, data.password);
     console.log(data);
   };

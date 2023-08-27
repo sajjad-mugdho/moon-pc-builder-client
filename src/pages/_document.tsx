@@ -2,11 +2,11 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html data-theme="cupcake" lang="en">
       <Head />
-      <body>
-        <Main />
-        <NextScript />
+      <body data-theme="cupcake">
+        <Main data-theme="cupcake" />
+        <NextScript data-theme="cupcake" />
       </body>
     </Html>
   );
