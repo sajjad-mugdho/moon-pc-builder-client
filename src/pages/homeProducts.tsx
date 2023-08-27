@@ -1,11 +1,13 @@
-import React from "react";
 import ProductCart from "../components/UI/productCard";
-import { useGetLastProductQuery } from "@/redux/features/productApi";
+import {
+  useGetAllProductQuery,
+  useGetLastProductQuery,
+} from "@/redux/features/productApi";
 
-const Products = () => {
+const HomeProducts = () => {
   // const { data: products } = useGetAllProductQuery(undefined);
   const { data: products } = useGetLastProductQuery(undefined);
-  console.log(products);
+  console.log("7only", products);
 
   return (
     <div className="flex flex-col justify-center items-center my-10">
@@ -21,4 +23,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default HomeProducts;

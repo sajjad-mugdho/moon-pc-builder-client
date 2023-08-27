@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AiFillStars } from "react-icons/ai";
-const ProductCart = ({ product }: any) => {
+const AllProductCard = ({ product }: any) => {
   return (
     <>
       <div className="card w-96 bg-base-100 shadow-xl">
@@ -24,4 +24,4 @@ const ProductCart = ({ product }: any) => {
   );
 };
 
-export default ProductCart;
+export default AllProductCard;

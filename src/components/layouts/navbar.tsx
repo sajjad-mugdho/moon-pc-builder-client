@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import logo from "@/assets/logo.png";
 import Image from "next/image";
+import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 const Navbar = () => {
   const { data: session } = useSession();
@@ -16,31 +17,47 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Home</a>
+              <Link href={"/"}>
+                <button>Home</button>
+              </Link>
             </li>
             <li>
               <a>Categories</a>
               <ul className="p-2">
                 <li>
-                  <a>CPU / Processor</a>
+                  <Link href="/products/cpu">
+                    <button>CPU / Processor</button>
+                  </Link>
                 </li>
                 <li>
-                  <a>Motherboard</a>
+                  <Link href="/products/motherboard">
+                    <button>Motherboard</button>
+                  </Link>
                 </li>
                 <li>
-                  <a>RAM</a>
+                  <Link href="/products/ram">
+                    <button>RAM</button>
+                  </Link>
                 </li>
                 <li>
-                  <a>Power Supply Unit</a>
+                  <Link href="/products/power-supply">
+                    <button>Power Supply Unit</button>
+                  </Link>
                 </li>
                 <li>
-                  <a>Storage Device</a>
+                  <Link href="/products/storage-device" as="">
+                    <button>Storage Device</button>
+                  </Link>
                 </li>
                 <li>
-                  <a>Monitor</a>
+                  <Link href="/products/monitor">
+                    <button>Monitor</button>
+                  </Link>
                 </li>
                 <li>
-                  <a>Others</a>
+                  <Link href="/products/others">
+                    <button>Others</button>
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -49,39 +66,62 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className=" w-[400px] normal-case text-xl">
-          <Image className="" src={logo} alt="" />
-        </a>
+        <Link href={"/"}>
+          <button className=" normal-case text-xl">
+            <Image className="" src={logo} alt="" />
+          </button>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex z-[14]">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Home</a>
+            <Link href={"/"}>
+              <button>Home</button>
+            </Link>
+          </li>
+          <li>
+            <Link href={"/products"}>
+              <button>All Products</button>
+            </Link>
           </li>
           <li tabIndex={0}>
             <details>
               <summary className="">Categories</summary>
               <ul className="p-2">
                 <li>
-                  <a>CPU / Processor</a>
+                  <Link href="/products/cpu">
+                    <button>CPU / Processor</button>
+                  </Link>
                 </li>
                 <li>
-                  <a>Motherboard</a>
+                  <Link href="/products/motherboard">
+                    <button>Motherboard</button>
+                  </Link>
                 </li>
                 <li>
-                  <a>RAM</a>
+                  <Link href="/products/ram">
+                    <button>RAM</button>
+                  </Link>
                 </li>
                 <li>
-                  <a>Power Supply Unit</a>
+                  <Link href="/products/power-supply">
+                    <button>Power Supply Unit</button>
+                  </Link>
                 </li>
                 <li>
-                  <a>Storage Device</a>
+                  <Link href="/products/storage-device" as="">
+                    <button>Storage Device</button>
+                  </Link>
                 </li>
                 <li>
-                  <a>Monitor</a>
+                  <Link href="/products/monitor">
+                    <button>Monitor</button>
+                  </Link>
                 </li>
                 <li>
-                  <a>Others</a>
+                  <Link href="/products/others">
+                    <button>Others</button>
+                  </Link>
                 </li>
               </ul>
             </details>
@@ -107,7 +147,9 @@ const Navbar = () => {
           )}
           {!session && (
             <li>
-              <a>Login</a>
+              <Link href={"/login"}>
+                <button>Login</button>
+              </Link>
             </li>
           )}
         </ul>

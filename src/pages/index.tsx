@@ -4,6 +4,7 @@ import Products from "@/pages/products";
 import componentCategories from "@/globalTypes/Pc-types";
 import { Inter } from "next/font/google";
 import Head from "next/head";
+import HomeProducts from "./homeProducts";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,7 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <Products />
+      <HomeProducts />
     </div>
   );
 }
