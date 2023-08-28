@@ -31,7 +31,8 @@ export const getServerSideProps = async ({ params }: any) => {
     `http://localhost:5000/api/v1/products/${category}`
   );
   const categoryProducts = await response.json();
-  console.log(categoryProducts);
+
+  console.log(category);
 
   return {
     props: {

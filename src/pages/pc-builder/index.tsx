@@ -6,12 +6,16 @@ import motherboard from "@/assets/image/motherboard.png";
 import psu from "@/assets/image/psu.png";
 import ram from "@/assets/image/ram.png";
 import ssd from "@/assets/image/ssd.png";
+import { addToPc } from "@/redux/features/pcBulderSlice";
+import { useAppDispatch } from "@/redux/hooks";
 
 import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 
 const PCBuilder = () => {
+  const dispatch = useAppDispatch();
+
   const featuredCategories = [
     {
       _id: "1",
@@ -67,7 +71,7 @@ const PCBuilder = () => {
             <div className="card-body">
               <h2 className="card-title">Select: {category.name}</h2>
               <div className="card-actions justify-end">
-                <Link href={`/products/${category.path}`}>
+                <Link href={`/pc-builder/choose/${category.path}`}>
                   <button className="btn btn-primary">Select Product</button>
                 </Link>
               </div>
