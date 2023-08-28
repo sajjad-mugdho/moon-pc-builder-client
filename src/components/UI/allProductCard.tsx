@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AiFillStars } from "react-icons/ai";
+
 const AllProductCard = ({ product }: any) => {
   return (
     <>
@@ -14,8 +14,10 @@ const AllProductCard = ({ product }: any) => {
           <p className="">Status: {product?.status}</p>
           <p className="">Review:{product?.individualRating}</p>
           <div className="card-actions flex justify-center items-center">
-            <Link href={"/products/details"}>
-              <button className="btn btn-primary items-center">Buy Now</button>
+            <Link href={`/productDetails/${product._id}`}>
+              <button className="btn btn-primary items-center">
+                See Details
+              </button>
             </Link>
           </div>
         </div>

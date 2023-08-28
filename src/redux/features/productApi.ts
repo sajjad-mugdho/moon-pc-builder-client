@@ -8,7 +8,14 @@ const productApi = api.injectEndpoints({
     getLastProduct: builder.query({
       query: () => "/products/last",
     }),
+    getProduct: builder.query({
+      query: (id) => `products/${id}`,
+    }),
   }),
 });
 
-export const { useGetAllProductQuery, useGetLastProductQuery } = productApi;
+export const {
+  useGetAllProductQuery,
+  useGetLastProductQuery,
+  useGetProductQuery,
+} = productApi;

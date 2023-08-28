@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const FeaturesCard = ({ card }: any) => {
@@ -11,7 +11,9 @@ const FeaturesCard = ({ card }: any) => {
         <div className="card-body">
           <h2 className="card-title">{card?.name}</h2>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary ">See More</button>
+            <Link href={`/products/${card.category}`}>
+              <button className="btn btn-primary ">See More</button>
+            </Link>
           </div>
         </div>
       </div>

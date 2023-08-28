@@ -1,8 +1,7 @@
 import AllProductCard from "@/components/UI/allProductCard";
 import { GetStaticProps } from "next";
 
-const ProductsAll = ({ products }) => {
-  console.log(products);
+const ProductsAll = ({ products }: any) => {
   return (
     <div className="flex flex-col justify-center items-center my-10">
       <div>

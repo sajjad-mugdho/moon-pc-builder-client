@@ -1,7 +1,7 @@
 import AllProductCard from "@/components/UI/allProductCard";
 import { useRouter } from "next/router";
 
-const CategoryPage = ({ categoryProducts }) => {
+const CategoryPage = ({ categoryProducts }: any) => {
   const router = useRouter();
   const { category } = router.query;
 
@@ -11,7 +11,7 @@ const CategoryPage = ({ categoryProducts }) => {
     <div className="flex flex-col items-center">
       <h1 className="text-3xl font-bold text-center uppercase">{category}</h1>
       <div className="grid grid-cols-3 gap-5 my-10 justify-center items-center">
-        {categoryProducts.map((product) => (
+        {categoryProducts.map((product: any) => (
           <AllProductCard product={product} key={product?._id}></AllProductCard>
         ))}
       </div>
@@ -19,11 +19,9 @@ const CategoryPage = ({ categoryProducts }) => {
   );
 };
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps({ params }: any) {
   const { category } = params;
-  console.log(category);
 
-  // Fetch products of the specified category from the server
   const response = await fetch(
     `http://localhost:5000/api/v1/products/${category}`
   );
