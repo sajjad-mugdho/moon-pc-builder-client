@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 const Navbar = () => {
   const { data: session } = useSession();
-  console.log(session);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -155,7 +154,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn btn-primary">PC Builder</a>
+        <Link href={"/pc-builder"}>
+          <button className="btn btn-primary">PC Builder</button>
+        </Link>
       </div>
     </div>
   );

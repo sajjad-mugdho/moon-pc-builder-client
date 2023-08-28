@@ -57,18 +57,19 @@ const PCBuilder = () => {
     },
   ];
   return (
-    <div>
+    <div className="box-border p-5 m-5">
       {featuredCategories.map((category) => (
         <>
-          <div className="card card-side bg-base-100 shadow-xl">
+          <div className="card card-side border-separate m-5 p-5 bg-base-100 shadow-xl">
             <figure>
               <Image src={category.icon} alt="" />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">New movie is released!</h2>
-              <p>Click the button to watch on Jetflix app.</p>
+              <h2 className="card-title">Select: {category.name}</h2>
               <div className="card-actions justify-end">
-                <button className="btn btn-primary">Watch</button>
+                <Link href={`/products/${category.path}`}>
+                  <button className="btn btn-primary">Select Product</button>
+                </Link>
               </div>
             </div>
           </div>
