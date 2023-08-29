@@ -11,7 +11,7 @@ const CategoryPage = ({ categoryProducts }: any) => {
   return (
     <div className="flex flex-col items-center">
       <h1 className="text-3xl font-bold text-center uppercase">{category}</h1>
-      <div className="grid grid-cols-3 gap-5 my-10 justify-center items-center">
+      <div className="grid lg:grid-cols-3 md:grid-col-2 sm:grid-col-1 gap-5 my-10 justify-center items-center">
         {Array.isArray(categoryProducts) &&
           categoryProducts?.map((product: any) => (
             <AllProductCard

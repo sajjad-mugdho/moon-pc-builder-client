@@ -16,7 +16,7 @@ const PcBuilderCard = ({ product }: any) => {
           <div className="card-actions flex justify-center items-center">
             <Link href={`/productDetails/${product._id}`}>
               <button className="btn btn-primary items-center">
-                See Details
+                Add To Builder
               </button>
             </Link>
           </div>

@@ -29,13 +29,12 @@ const ChooseSingleCategory = ({ products }: any) => {
 export default ChooseSingleCategory;
 
 export const getServerSideProps = async ({ params }: any) => {
-  const { category } = params;
+  const { categorypc } = params;
 
   const response = await fetch(
-    `http://localhost:5000/api/v1/products/${category}`
+    `http://localhost:5000/api/v1/products/${categorypc}`
   );
   const data = await response.json();
-  console.log(category, data);
 
   return {
     props: {
