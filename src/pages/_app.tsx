@@ -8,14 +8,12 @@ import { store } from "@/redux/store";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <Provider store={store}>
-      <SessionProvider session={pageProps?.session}>
-        <>
-          <Navbar />
-          <Component {...pageProps} />
-          <Footer />
-        </>
-      </SessionProvider>
-    </Provider>
+    <SessionProvider session={pageProps?.session}>
+      <Provider store={store}>
+        <Navbar />
+        <Component {...pageProps} />
+        <Footer />
+      </Provider>
+    </SessionProvider>
   );
 }

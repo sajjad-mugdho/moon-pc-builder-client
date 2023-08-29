@@ -9,7 +9,7 @@ const ProductsAll = ({ products }: any) => {
       </div>
       <div className="grid grid-cols-3 gap-5 justify-center items-center">
         {products?.map((product: any) => (
-          <AllProductCard key={product?._id} product={product} />
+          <AllProductCard key={product?._id} product={product}></AllProductCard>
         ))}
       </div>
     </div>

@@ -5,12 +5,18 @@ import { useRouter } from "next/router";
 
 const ChooseSingleCategory = ({ products }: any) => {
   const router = useRouter();
-  const { category } = router.query;
+  const { categorypc: category } = router.query;
   const dispatch = useAppDispatch();
-  console.log(products, category);
+  console.log("inCategory", products, category);
 
   const handleAddToBuilder = (product: any) => {
-    dispatch(addToPc({ category, product }));
+    const data = {
+      category,
+      product,
+    };
+    console.log(data);
+    dispatch(addToPc(data));
+    router.push("/pc-builder");
   };
 
   return (
@@ -19,7 +25,11 @@ const ChooseSingleCategory = ({ products }: any) => {
       <div className="grid grid-cols-3 gap-5 my-10 justify-center items-center">
         {Array.isArray(products) &&
           products?.map((product: any) => (
-            <PcBuilderCard product={product} key={product?._id}></PcBuilderCard>
+            <PcBuilderCard
+              handleAddToBuilder={handleAddToBuilder}
+              product={product}
+              key={product?._id}
+            ></PcBuilderCard>
           ))}
       </div>
     </div>

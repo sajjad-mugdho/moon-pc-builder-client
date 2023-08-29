@@ -1,12 +1,11 @@
 import AllProductCard from "@/components/UI/allProductCard";
+import { addToPc } from "@/redux/features/pcBulderSlice";
+import { useAppDispatch } from "@/redux/hooks";
 import { useRouter } from "next/router";
 
 const CategoryPage = ({ categoryProducts }: any) => {
   const router = useRouter();
   const { category } = router.query;
-  console.log(category);
-
-  console.log(categoryProducts, category);
 
   return (
     <div className="flex flex-col items-center">
