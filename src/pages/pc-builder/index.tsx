@@ -62,7 +62,8 @@ const PCBuilder = () => {
       path: "others",
     },
   ];
-
+  const isCompleteButtonEnabled = Object.keys(pcComponents).length === 7;
+  console.log(isCompleteButtonEnabled);
   return (
     <div className="box-border p-5 m-5">
       {featuredCategories.map((category) => (
@@ -94,14 +95,27 @@ const PCBuilder = () => {
                     {pcComponents?.[category.path]?.productName}
                   </h1>
                 </div>
-                <div>
-                  <button className="btn btn-sm">Remove</button>
-                </div>
+                {pcComponents?.[category.path]?.productName && (
+                  <div>
+                    <button className="btn btn-sm">Remove</button>
+                  </div>
+                )}
               </div>
             )}
           </div>
         </>
       ))}
+      {isCompleteButtonEnabled ? (
+        <div className="flex items-center justify-center">
+          <button className="btn btn-primary">Complete</button>
+        </div>
+      ) : (
+        <div className="flex items-center justify-center">
+          <button className="btn btn-primary" disabled>
+            Complete
+          </button>
+        </div>
+      )}
     </div>
   );
 };
