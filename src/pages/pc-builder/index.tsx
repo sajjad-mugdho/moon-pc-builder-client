@@ -6,15 +6,17 @@ import motherboard from "@/assets/image/motherboard.png";
 import psu from "@/assets/image/psu.png";
 import ram from "@/assets/image/ram.png";
 import ssd from "@/assets/image/ssd.png";
-import { addToPc } from "@/redux/features/pcBulderSlice";
-import { useAppDispatch } from "@/redux/hooks";
+
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
 
 const PCBuilder = () => {
   const dispatch = useAppDispatch();
+
+  const pcComponents = useAppSelector((state) => state.pcBuilder.pc);
+  console.log(pcComponents);
 
   const featuredCategories = [
     {
@@ -39,13 +41,13 @@ const PCBuilder = () => {
       _id: "4",
       name: "Power Supply Unit",
       icon: psu,
-      path: "psu",
+      path: "power-supply",
     },
     {
       _id: "5",
       name: "Storage Device",
       icon: ssd,
-      path: "storage",
+      path: "storage-device",
     },
     {
       _id: "6",
@@ -60,6 +62,7 @@ const PCBuilder = () => {
       path: "others",
     },
   ];
+
   return (
     <div className="box-border p-5 m-5">
       {featuredCategories.map((category) => (
@@ -70,12 +73,32 @@ const PCBuilder = () => {
             </figure>
             <div className="card-body">
               <h2 className="card-title">Select: {category.name}</h2>
+
               <div className="card-actions justify-end">
                 <Link href={`/pc-builder/choose/${category.path}`}>
-                  <button className="btn btn-primary">Select Product</button>
+                  <button className="btn btn-sm">Select</button>
                 </Link>
               </div>
             </div>
+            {pcComponents && (
+              <div className="flex flex-row w-[50%] gap-5 items-center">
+                <div>
+                  <img
+                    className="w-[100px]"
+                    src={pcComponents?.[category.path]?.image}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <h1 className="text-lg font-semibold">
+                    {pcComponents?.[category.path]?.productName}
+                  </h1>
+                </div>
+                <div>
+                  <button className="btn btn-sm">Remove</button>
+                </div>
+              </div>
+            )}
           </div>
         </>
       ))}
