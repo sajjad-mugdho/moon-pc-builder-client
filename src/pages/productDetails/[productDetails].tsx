@@ -5,6 +5,7 @@ const ProductDetails = () => {
   const { productDetails } = router.query;
 
   const { data: product } = useGetProductQuery(productDetails);
+  console.log("Details", product, router.query);
 
   return (
     <div className="m-10">

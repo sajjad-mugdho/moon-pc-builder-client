@@ -27,7 +27,7 @@ export const getServerSideProps = async ({ params }: any) => {
   const { category } = params;
 
   const response = await fetch(
-    `http://localhost:5000/api/v1/products/${category}`
+    `https://moon-pc-server.vercel.app/api/v1/products/pc/${category}`
   );
   const categoryProducts = await response.json();
 
