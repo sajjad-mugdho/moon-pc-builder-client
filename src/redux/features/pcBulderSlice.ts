@@ -5,7 +5,7 @@ const initialState = {
     cpu: {},
     motherboard: {},
     ram: {},
-    psu: {},
+    power: {},
     storage: {},
     monitor: {},
     others: {},

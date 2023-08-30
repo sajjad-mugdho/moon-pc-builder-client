@@ -6,9 +6,8 @@ import motherboard from "@/assets/image/motherboard.png";
 import psu from "@/assets/image/psu.png";
 import ram from "@/assets/image/ram.png";
 import ssd from "@/assets/image/ssd.png";
-
+import { removeFromPc } from "@/redux/features/pcBulderSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,6 +15,7 @@ const PCBuilder = () => {
   const dispatch = useAppDispatch();
 
   const pcComponents = useAppSelector((state) => state.pcBuilder.pc);
+
   console.log(pcComponents);
 
   const featuredCategories = [
@@ -41,13 +41,13 @@ const PCBuilder = () => {
       _id: "4",
       name: "Power Supply Unit",
       icon: psu,
-      path: "power-supply",
+      path: "power",
     },
     {
       _id: "5",
       name: "Storage Device",
       icon: ssd,
-      path: "storage-device",
+      path: "storage",
     },
     {
       _id: "6",
@@ -62,7 +62,8 @@ const PCBuilder = () => {
       path: "others",
     },
   ];
-  const isCompleteButtonEnabled = Object.keys(pcComponents).length === 7;
+
+  const isCompleteButtonEnabled = Object.keys(pcComponents).length === 6;
   console.log(isCompleteButtonEnabled);
   return (
     <div className="box-border p-5 m-5">
@@ -97,7 +98,14 @@ const PCBuilder = () => {
                 </div>
                 {pcComponents?.[category.path]?.productName && (
                   <div>
-                    <button className="btn btn-sm">Remove</button>
+                    <button
+                      onClick={() =>
+                        dispatch(removeFromPc({ category: category.path }))
+                      }
+                      className="btn btn-sm"
+                    >
+                      Remove
+                    </button>
                   </div>
                 )}
               </div>
@@ -105,14 +113,19 @@ const PCBuilder = () => {
           </div>
         </>
       ))}
-      {isCompleteButtonEnabled ? (
+      {!isCompleteButtonEnabled ? (
         <div className="flex items-center justify-center">
-          <button className="btn btn-primary">Complete</button>
+          <button
+            onClick={() => alert("Successfully built PC!")}
+            className="btn btn-primary"
+          >
+            Complete build
+          </button>
         </div>
       ) : (
         <div className="flex items-center justify-center">
           <button className="btn btn-primary" disabled>
-            Complete
+            Complete build
           </button>
         </div>
       )}
