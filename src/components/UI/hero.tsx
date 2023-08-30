@@ -1,7 +1,4 @@
-import pic1 from "@/assets/image/pic-1.jpg";
-import pic2 from "@/assets/image/pic-2.jpg";
-import pic3 from "@/assets/image/pic-3.jpg";
-import pic4 from "@/assets/image/pic-4.jpg";
+import hero from "@/assets/image/hero-1.webp";
 import Image from "next/image";
 
 const Hero = () => {
@@ -11,7 +8,7 @@ const Hero = () => {
         className="hero min-h-screen"
         style={{
           backgroundImage:
-            "url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)",
+            "url(https://www.jiowo.com/blog/perfect-gaming-computer/gaming-pc-img.jpg)",
         }}
       >
         <div className="hero-overlay bg-opacity-60"></div>

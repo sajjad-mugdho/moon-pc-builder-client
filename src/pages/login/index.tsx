@@ -84,7 +84,7 @@ const LoginForm = () => {
               </button>
               <button
                 onClick={() =>
-                  signIn("google", {
+                  signIn("github", {
                     callbackUrl: "http://localhost:3000/",
                   })
                 }
